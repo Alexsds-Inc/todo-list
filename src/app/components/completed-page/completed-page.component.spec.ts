@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { CompletedPageComponent } from './completed-page.component';
+import {CompletedPageComponent} from './completed-page.component';
 
 describe('CompletedPageComponent', () => {
   let component: CompletedPageComponent;
@@ -8,9 +8,8 @@ describe('CompletedPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CompletedPageComponent ]
-    })
-    .compileComponents();
+      declarations: [CompletedPageComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

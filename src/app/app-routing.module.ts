@@ -15,7 +15,7 @@ const routes: Routes = [
   {
     path: 'completed',
     component: CompletedPageComponent,
-  }
+  },
 ];
 
 @NgModule({
