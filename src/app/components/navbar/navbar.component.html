@@ -1,15 +1,17 @@
 <mat-toolbar color="primary" class="navbar">
-  <mat-icon aria-hidden="false" aria-label="Example home icon">list</mat-icon>
   <span>
-    <a routerLinkActive="mat-accent" [routerLink]="['/list']">To Do</a>
+    <a routerLinkActive="mat-accent" routerLink="/list">To Do</a>
   </span>
-  <span class="example-spacer"></span>
-  <button routerLinkActive="mat-accent" [routerLink]="['/list']" mat-raised-button color="primary" class="btn-navbar">
+  <button
+    routerLinkActive="mat-accent"
+    routerLink="/list"
+    mat-raised-button color="primary"
+    class="btn-navbar">
     List
   </button>
   <button
     routerLinkActive="mat-accent"
-    [routerLink]="['/completed']"
+    routerLink="/completed"
     mat-raised-button
     color="primary"
     class="btn-navbar"
