@@ -1,7 +1,9 @@
+@import '../../../scss/variables';
+
 .navbar {
   a {
     text-decoration: none;
-    color: #fff;
+    color: $white;
   }
 
   span {

@@ -23,6 +23,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm i
     - run: npm run clean
-    - run: npm run test
     - run: npm run lint:prettier
+    - run: npm run lint:sass
+    - run: npm run test
     - run: npm run build:prod
