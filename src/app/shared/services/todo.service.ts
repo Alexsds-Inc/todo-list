@@ -12,7 +12,7 @@ export class TodoService {
     {
       id: 2,
       task: 'Create app',
-      complete: false,
+      complete: true,
     },
     {
       id: 3,
@@ -23,7 +23,11 @@ export class TodoService {
 
   constructor() {}
 
-  getAll(): Todo[] {
-    return this.todoList;
+  getList(): Todo[] {
+    return this.todoList.filter((todo) => todo.complete === false);
+  }
+
+  getCompleted(): Todo[] {
+    return this.todoList.filter((todo) => todo.complete === true);
   }
 }
