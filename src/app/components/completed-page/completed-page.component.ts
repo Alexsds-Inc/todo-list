@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {Todo} from '@shared/models/todo.model';
+import {TodoService} from '@shared/services/todo.service';
 
 @Component({
   selector: 'app-completed-page',
@@ -6,7 +8,12 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./completed-page.component.scss'],
 })
 export class CompletedPageComponent implements OnInit {
-  constructor() {}
+  title = 'Completed 🎉';
+  todoList: Todo[] = [];
 
-  ngOnInit(): void {}
+  constructor(private todoService: TodoService) {}
+
+  ngOnInit(): void {
+    this.todoList = this.todoService.getCompleted();
+  }
 }

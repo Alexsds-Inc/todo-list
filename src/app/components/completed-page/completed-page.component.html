@@ -1,1 +1,14 @@
-<p>completed-page works!</p>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <h2>{{ title }}</h2>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list role="list">
+      <mat-list-item *ngFor="let todo of todoList" role="listitem">
+        <app-list-item [todo]="todo"></app-list-item>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
