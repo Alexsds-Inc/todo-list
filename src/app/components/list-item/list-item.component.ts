@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Todo} from '../../interfaces/todo.interface';
+import {Todo} from '@shared/models/todo.model';
 
 @Component({
   selector: 'app-list-item',

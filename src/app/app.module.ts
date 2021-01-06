@@ -14,7 +14,7 @@ import {NavbarComponent} from './components/navbar/navbar.component';
 import {ListPageComponent} from './components/list-page/list-page.component';
 import {CompletedPageComponent} from './components/completed-page/completed-page.component';
 import {ListItemComponent} from './components/list-item/list-item.component';
-import {TodoService} from './services/todo.service';
+import {TodoService} from './shared/services/todo.service';
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent, ListPageComponent, CompletedPageComponent, ListItemComponent],
