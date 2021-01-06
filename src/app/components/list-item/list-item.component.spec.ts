@@ -1,24 +1,29 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {ListPageComponent} from './list-page.component';
+import {ListItemComponent} from './list-item.component';
 import {TodoService} from '@shared/services/todo.service';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
-describe('ListPageComponent', () => {
-  let component: ListPageComponent;
-  let fixture: ComponentFixture<ListPageComponent>;
+describe('ListItemComponent', () => {
+  let component: ListItemComponent;
+  let fixture: ComponentFixture<ListItemComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ListPageComponent],
+      declarations: [ListItemComponent],
       providers: [TodoService],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ListPageComponent);
+    fixture = TestBed.createComponent(ListItemComponent);
     component = fixture.componentInstance;
+    component.todo = {
+      id: 1,
+      task: 'Drink coffee',
+      complete: false,
+    };
     fixture.detectChanges();
   });
 
