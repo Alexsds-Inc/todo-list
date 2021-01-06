@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {TodoService} from '../../services/todo.service';
+import {Todo} from '../../interfaces/todo.interface';
 
 @Component({
   selector: 'app-list-page',
@@ -6,7 +8,12 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./list-page.component.scss'],
 })
 export class ListPageComponent implements OnInit {
-  constructor() {}
+  title = 'To Do List';
+  todoList: Todo[] = [];
 
-  ngOnInit(): void {}
+  constructor(private todoService: TodoService) {}
+
+  ngOnInit(): void {
+    this.todoList = this.todoService.getAll();
+  }
 }
