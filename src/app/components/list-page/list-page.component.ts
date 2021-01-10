@@ -14,6 +14,8 @@ export class ListPageComponent implements OnInit {
   constructor(private todoService: TodoService) {}
 
   ngOnInit(): void {
-    this.todoList = this.todoService.getList();
+    this.todoService.getList().subscribe((list) => {
+      this.todoList = list;
+    });
   }
 }
