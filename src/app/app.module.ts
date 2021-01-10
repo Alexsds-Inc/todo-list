@@ -19,8 +19,8 @@ import {ListPageComponent} from './components/list-page/list-page.component';
 import {CompletedPageComponent} from './components/completed-page/completed-page.component';
 import {ListItemComponent} from './components/list-item/list-item.component';
 import {TodoService} from '@shared/services/todo.service';
-import {ButtonAddComponent} from './components/button-add/button-add.component';
 import {AddTaskComponent} from './components/add-task/add-task.component';
+import {TaskFormComponent} from './components/task-form/task-form.component';
 
 @NgModule({
   declarations: [
@@ -29,8 +29,8 @@ import {AddTaskComponent} from './components/add-task/add-task.component';
     ListPageComponent,
     CompletedPageComponent,
     ListItemComponent,
-    ButtonAddComponent,
     AddTaskComponent,
+    TaskFormComponent,
   ],
   imports: [
     BrowserModule,

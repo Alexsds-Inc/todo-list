@@ -1,8 +1,6 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import {ButtonAddComponent} from '../button-add/button-add.component';
-import {Todo} from '@shared/models/todo.model';
-import {TodoService} from '@shared/services/todo.service';
+import {Component, OnInit} from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
+import {TaskFormComponent} from '../task-form/task-form.component';
 
 @Component({
   selector: 'app-add-task',
@@ -10,21 +8,17 @@ import {TodoService} from '@shared/services/todo.service';
   styleUrls: ['./add-task.component.scss'],
 })
 export class AddTaskComponent implements OnInit {
-  task: string;
-
-  constructor(
-    public dialogRef: MatDialogRef<ButtonAddComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Todo,
-    private todoService: TodoService
-  ) {}
+  constructor(public dialog: MatDialog) {}
 
   ngOnInit(): void {}
 
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
+  openDialog(): void {
+    const dialogRef = this.dialog.open(TaskFormComponent, {
+      minWidth: '50vw',
+    });
 
-  addTask(): void {
-    this.todoService.addTask(this.task);
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+    });
   }
 }
