@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {TaskFormComponent} from '../task-form/task-form.component';
+import {TodoService} from '@shared/services/todo.service';
 
 @Component({
   selector: 'app-add-task',
@@ -8,7 +9,9 @@ import {TaskFormComponent} from '../task-form/task-form.component';
   styleUrls: ['./add-task.component.scss'],
 })
 export class AddTaskComponent implements OnInit {
-  constructor(public dialog: MatDialog) {}
+  task: string;
+
+  constructor(public dialog: MatDialog, private todoService: TodoService) {}
 
   ngOnInit(): void {}
 
@@ -18,7 +21,7 @@ export class AddTaskComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
+      this.todoService.addTask(result);
     });
   }
 }
