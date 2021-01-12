@@ -1,4 +1,6 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
 
 import {AddTaskComponent} from './add-task.component';
 
@@ -9,6 +11,8 @@ describe('ButtonAddComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [AddTaskComponent],
+      providers: [MatDialog],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
   });
 

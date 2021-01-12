@@ -20,8 +20,10 @@ export class AddTaskComponent implements OnInit {
       minWidth: '50vw',
     });
 
-    dialogRef.afterClosed().subscribe((result) => {
-      this.todoService.addTask(result);
+    dialogRef.afterClosed().subscribe((task) => {
+      if (task) {
+        this.todoService.addTask(task);
+      }
     });
   }
 }
