@@ -38,14 +38,15 @@ export class TodoService {
   }
 
   addTask(task: string): Todo {
-    const todos = this.incomplete.getValue();
+    const todosIncomlete = this.incomplete.getValue();
+    const todosCompleted = this.completed.getValue();
     const todo: Todo = {
-      id: todos.length,
+      id: todosIncomlete.length + todosCompleted.length + 1,
       task,
       complete: false,
     };
-    todos.push(todo);
-    this.incomplete.next(todos);
+    todosIncomlete.push(todo);
+    this.incomplete.next(todosIncomlete);
 
     return todo;
   }
