@@ -1,7 +1,7 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 import {CompletedPageComponent} from './completed-page.component';
-import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {TodoService} from '@shared/services/todo.service';
 
 describe('CompletedPageComponent', () => {
