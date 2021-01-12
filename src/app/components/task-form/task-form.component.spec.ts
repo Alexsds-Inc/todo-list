@@ -1,13 +1,10 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 
 import {TaskFormComponent} from './task-form.component';
+import {MAT_DIALOG_DATA, MatDialogModule, MatDialogRef} from '@angular/material/dialog';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 describe('AddTaskComponent', () => {
-  const mockDialogRef = {
-    close: jasmine.createSpy('close'),
-  };
   let component: TaskFormComponent;
   let fixture: ComponentFixture<TaskFormComponent>;
 
@@ -18,12 +15,12 @@ describe('AddTaskComponent', () => {
       providers: [
         {
           provide: MAT_DIALOG_DATA,
-          useValue: {},
+          useValue: {}
         },
         {
           provide: MatDialogRef,
-          useValue: mockDialogRef,
-        },
+          useValue: {}
+        }
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();

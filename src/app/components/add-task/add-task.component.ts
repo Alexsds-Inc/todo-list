@@ -21,7 +21,7 @@ export class AddTaskComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((task) => {
-      if (task) {
+      if (task){
         this.todoService.addTask(task);
       }
     });
