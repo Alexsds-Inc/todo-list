@@ -1,18 +1,17 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
-import {MatDialog} from '@angular/material/dialog';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import {AddTaskComponent} from './add-task.component';
 
-describe('ButtonAddComponent', () => {
+
+describe('AddTaskComponent', () => {
   let component: AddTaskComponent;
   let fixture: ComponentFixture<AddTaskComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [AddTaskComponent],
-      providers: [MatDialog],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      imports: [MatDialogModule]
     }).compileComponents();
   });
 

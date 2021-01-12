@@ -1,7 +1,6 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import {Component, OnInit} from '@angular/core';
+import {MatDialogRef} from '@angular/material/dialog';
 import {AddTaskComponent} from '../add-task/add-task.component';
-import {Todo} from '@shared/models/todo.model';
 
 @Component({
   selector: 'app-task-form',
@@ -11,7 +10,7 @@ import {Todo} from '@shared/models/todo.model';
 export class TaskFormComponent implements OnInit {
   task: string;
 
-  constructor(public dialogRef: MatDialogRef<AddTaskComponent>, @Inject(MAT_DIALOG_DATA) public data: Todo) {}
+  constructor(public dialogRef: MatDialogRef<AddTaskComponent>) {}
 
   ngOnInit(): void {}
 

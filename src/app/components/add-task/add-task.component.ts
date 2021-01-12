@@ -11,7 +11,7 @@ import {TodoService} from '@shared/services/todo.service';
 export class AddTaskComponent implements OnInit {
   task: string;
 
-  constructor(public dialog: MatDialog, private todoService: TodoService) {}
+  constructor(private dialog: MatDialog, private todoService: TodoService) {}
 
   ngOnInit(): void {}
 
