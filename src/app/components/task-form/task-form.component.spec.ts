@@ -15,12 +15,12 @@ describe('AddTaskComponent', () => {
       providers: [
         {
           provide: MAT_DIALOG_DATA,
-          useValue: {}
+          useValue: {},
         },
         {
           provide: MatDialogRef,
-          useValue: {}
-        }
+          useValue: {},
+        },
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();

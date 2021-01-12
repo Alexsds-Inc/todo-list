@@ -48,9 +48,7 @@ import {TaskFormComponent} from './components/task-form/task-form.component';
     MatInputModule,
   ],
   exports: [MatDialogModule],
-  providers: [
-    TodoService,
-  ],
+  providers: [TodoService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
