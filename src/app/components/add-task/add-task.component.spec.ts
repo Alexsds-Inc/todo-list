@@ -3,7 +3,6 @@ import {MatDialogModule} from '@angular/material/dialog';
 
 import {AddTaskComponent} from './add-task.component';
 
-
 describe('AddTaskComponent', () => {
   let component: AddTaskComponent;
   let fixture: ComponentFixture<AddTaskComponent>;
@@ -11,7 +10,7 @@ describe('AddTaskComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [AddTaskComponent],
-      imports: [MatDialogModule]
+      imports: [MatDialogModule],
     }).compileComponents();
   });
 
