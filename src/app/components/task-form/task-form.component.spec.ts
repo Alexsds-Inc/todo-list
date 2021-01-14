@@ -1,8 +1,8 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-
 import {TaskFormComponent} from './task-form.component';
 import {MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {FormsModule} from '@angular/forms';
 
 describe('AddTaskComponent', () => {
   let component: TaskFormComponent;
@@ -11,7 +11,7 @@ describe('AddTaskComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [TaskFormComponent],
-      imports: [MatDialogModule],
+      imports: [MatDialogModule, FormsModule],
       providers: [
         {
           provide: MatDialogRef,
