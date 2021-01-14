@@ -14,6 +14,8 @@ export class CompletedPageComponent implements OnInit {
   constructor(private todoService: TodoService) {}
 
   ngOnInit(): void {
-    this.todoList = this.todoService.getCompleted();
+    this.todoService.getCompleted().subscribe((list) => {
+      this.todoList = list;
+    });
   }
 }

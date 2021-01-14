@@ -1,5 +1,4 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-
 import {NavbarComponent} from './navbar.component';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 

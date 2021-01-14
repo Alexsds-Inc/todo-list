@@ -1,22 +1,24 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {ListPageComponent} from './list-page.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {AddTaskComponent} from './add-task.component';
 import {TodoService} from '@shared/services/todo.service';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
-describe('ListPageComponent', () => {
-  let component: ListPageComponent;
-  let fixture: ComponentFixture<ListPageComponent>;
+describe('AddTaskComponent', () => {
+  let component: AddTaskComponent;
+  let fixture: ComponentFixture<AddTaskComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ListPageComponent],
+      declarations: [AddTaskComponent],
+      imports: [MatDialogModule],
       providers: [TodoService],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ListPageComponent);
+    fixture = TestBed.createComponent(AddTaskComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

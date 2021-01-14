@@ -1,5 +1,4 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-
 import {ListItemComponent} from './list-item.component';
 import {TodoService} from '@shared/services/todo.service';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
