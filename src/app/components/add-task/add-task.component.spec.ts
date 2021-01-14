@@ -12,7 +12,7 @@ describe('AddTaskComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [AddTaskComponent],
       imports: [MatDialogModule],
-      providers: [TodoService]
+      providers: [TodoService],
     }).compileComponents();
   });
 
