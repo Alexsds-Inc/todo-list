@@ -18,4 +18,10 @@ export class CompletedPageComponent implements OnInit {
       this.todoList = list;
     });
   }
+
+  inComplete(id: number): void {
+    setTimeout(() => {
+      this.todoService.inComplete(id);
+    }, 500);
+  }
 }
