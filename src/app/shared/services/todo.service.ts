@@ -78,4 +78,21 @@ export class TodoService {
 
     return lastId + 1;
   }
+
+  inComplete(id: number): void {
+    const todosComplete = this.completed.getValue();
+    const todo = todosComplete.find((item) => id === item.id);
+    console.log(todo);
+    if (!todo) {
+      return;
+    }
+
+    const newTodos = todosComplete.filter((item) => id !== item.id);
+    this.completed.next(newTodos);
+
+    const todosIncomplete = this.incomplete.getValue();
+    todo.complete = false;
+    todosIncomplete.push(todo);
+    this.incomplete.next(todosIncomplete);
+  }
 }
