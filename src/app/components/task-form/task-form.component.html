@@ -2,10 +2,13 @@
 <mat-dialog-content>
   <mat-form-field class="w-100">
     <mat-label>New Task</mat-label>
-    <input matInput [(ngModel)]="task" />
+    <input matInput [(ngModel)]="task" required #input="ngModel" />
+    <div *ngIf="input.invalid && (input.dirty || input.touched) && input.errors" class="alert alert-danger">
+      <div *ngIf="input.errors.required">Name is required.</div>
+    </div>
   </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-raised-button (click)="onNoClick()">Cancel</button>
-  <button mat-raised-button color="accent" [mat-dialog-close]="task">Add</button>
+  <button mat-raised-button color="accent" [mat-dialog-close]="task" [disabled]="input.invalid">Add</button>
 </mat-dialog-actions>
