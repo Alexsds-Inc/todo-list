@@ -38,15 +38,14 @@ export class TodoService {
   }
 
   addTask(task: string): Todo {
-    const todosIncomlete = this.incomplete.getValue();
-    const todosCompleted = this.completed.getValue();
+    const todosIncomplete = this.incomplete.getValue();
     const todo: Todo = {
-      id: todosIncomlete.length + todosCompleted.length + 1,
+      id: this.getNextId(),
       task,
       complete: false,
     };
-    todosIncomlete.push(todo);
-    this.incomplete.next(todosIncomlete);
+    todosIncomplete.push(todo);
+    this.incomplete.next(todosIncomplete);
 
     return todo;
   }
@@ -65,5 +64,18 @@ export class TodoService {
     todo.complete = true;
     todosCompleted.push(todo);
     this.completed.next(todosCompleted);
+  }
+
+  protected getNextId(): number {
+    const todosIncomplete = this.incomplete.getValue();
+    const todosCompleted = this.completed.getValue();
+    const todos = todosIncomplete.concat(todosCompleted);
+
+    const lastId = Math.max.apply(
+      Math,
+      todos.map((o: Todo) => o.id)
+    );
+
+    return lastId + 1;
   }
 }
