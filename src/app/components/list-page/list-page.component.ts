@@ -18,4 +18,10 @@ export class ListPageComponent implements OnInit {
       this.todoList = list;
     });
   }
+
+  complete(id: number): void {
+    setTimeout(() => {
+      this.todoService.complete(id);
+    }, 500);
+  }
 }

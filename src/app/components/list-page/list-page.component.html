@@ -7,7 +7,7 @@
   <mat-card-content>
     <mat-list role="list">
       <mat-list-item *ngFor="let todo of todoList" role="listitem">
-        <app-list-item [todo]="todo"></app-list-item>
+        <app-list-item [todo]="todo" (click)="complete(todo.id)"></app-list-item>
       </mat-list-item>
     </mat-list>
   </mat-card-content>
