@@ -50,4 +50,20 @@ export class TodoService {
 
     return todo;
   }
+
+  complete(id: number): void {
+    const todosIncomplete = this.incomplete.getValue();
+    const todo = todosIncomplete.find((item) => id === item.id);
+    if (!todo) {
+      return;
+    }
+
+    const newTodos = todosIncomplete.filter((item) => id !== item.id);
+    this.incomplete.next(newTodos);
+
+    const todosCompleted = this.completed.getValue();
+    todo.complete = true;
+    todosCompleted.push(todo);
+    this.completed.next(todosCompleted);
+  }
 }
