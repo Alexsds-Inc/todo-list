@@ -5,10 +5,19 @@
     </mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <mat-list role="list">
+    <mat-list *ngIf="todoList.length > 0; else emptyState" role="list">
       <mat-list-item *ngFor="let todo of todoList" role="listitem">
         <app-list-item [todo]="todo" (click)="complete(todo.id)"></app-list-item>
       </mat-list-item>
     </mat-list>
+    <ng-template #emptyState>
+      <div class="empty-state">
+        <img src="/assets/img/Checklist-rafiki.svg" alt="empty state" class="empty-state__image" />
+        <h2 class="empty-state__title">No new tasks</h2>
+        <div class="empty-state__description">
+          <p>You don`t have new tasks to do.</p>
+        </div>
+      </div>
+    </ng-template>
   </mat-card-content>
 </mat-card>
