@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Todo} from '@shared/models/todo.model';
-import {BehaviorSubject, Observable} from 'rxjs';
+import {BehaviorSubject, Observable, of} from 'rxjs';
 
 @Injectable()
 export class TodoService {
@@ -37,7 +37,7 @@ export class TodoService {
     return this.completed.asObservable();
   }
 
-  addTask(task: string): Todo {
+  addTask(task: string): Observable<Todo> {
     const todosIncomplete = this.incomplete.getValue();
     const todo: Todo = {
       id: this.getNextId(),
@@ -47,14 +47,14 @@ export class TodoService {
     todosIncomplete.push(todo);
     this.incomplete.next(todosIncomplete);
 
-    return todo;
+    return of(todo);
   }
 
-  complete(id: number): void {
+  complete(id: number): Observable<boolean> {
     const todosIncomplete = this.incomplete.getValue();
     const todo = todosIncomplete.find((item) => id === item.id);
     if (!todo) {
-      return;
+      return of(false);
     }
 
     const newTodos = todosIncomplete.filter((item) => id !== item.id);
@@ -64,6 +64,26 @@ export class TodoService {
     todo.complete = true;
     todosCompleted.push(todo);
     this.completed.next(todosCompleted);
+
+    return of(true);
+  }
+
+  inComplete(id: number): Observable<boolean> {
+    const todosComplete = this.completed.getValue();
+    const todo = todosComplete.find((item) => id === item.id);
+    if (!todo) {
+      return of(false);
+    }
+
+    const newTodos = todosComplete.filter((item) => id !== item.id);
+    this.completed.next(newTodos);
+
+    const todosIncomplete = this.incomplete.getValue();
+    todo.complete = false;
+    todosIncomplete.push(todo);
+    this.incomplete.next(todosIncomplete);
+
+    return of(true);
   }
 
   protected getNextId(): number {
@@ -77,22 +97,5 @@ export class TodoService {
     );
 
     return lastId + 1;
-  }
-
-  inComplete(id: number): void {
-    const todosComplete = this.completed.getValue();
-    const todo = todosComplete.find((item) => id === item.id);
-    console.log(todo);
-    if (!todo) {
-      return;
-    }
-
-    const newTodos = todosComplete.filter((item) => id !== item.id);
-    this.completed.next(newTodos);
-
-    const todosIncomplete = this.incomplete.getValue();
-    todo.complete = false;
-    todosIncomplete.push(todo);
-    this.incomplete.next(todosIncomplete);
   }
 }
