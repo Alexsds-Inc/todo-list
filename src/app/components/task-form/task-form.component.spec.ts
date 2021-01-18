@@ -17,7 +17,7 @@ describe('AddTaskComponent', () => {
         {
           provide: MatDialogRef,
           useValue: {},
-        }
+        },
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
