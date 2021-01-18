@@ -3,7 +3,6 @@ import {TaskFormComponent} from './task-form.component';
 import {MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 describe('AddTaskComponent', () => {
   let component: TaskFormComponent;
@@ -12,7 +11,7 @@ describe('AddTaskComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [TaskFormComponent],
-      imports: [MatDialogModule, FormsModule, MatSnackBarModule],
+      imports: [MatDialogModule, FormsModule],
       providers: [
         {
           provide: MatDialogRef,

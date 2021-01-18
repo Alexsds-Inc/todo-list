@@ -22,11 +22,11 @@ export class ListPageComponent implements OnInit {
 
   complete(id: number): void {
     setTimeout(() => {
-      this.todoService.complete(id);
+      this.todoService.complete(id).subscribe((result) => {
+        if (result) {
+          this.snackBar.open('Task completed');
+        }
+      });
     }, 500);
-
-    this.snackBar.open('Task completed', '', {
-      duration: 2000,
-    });
   }
 }

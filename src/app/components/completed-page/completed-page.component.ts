@@ -22,11 +22,11 @@ export class CompletedPageComponent implements OnInit {
 
   inComplete(id: number): void {
     setTimeout(() => {
-      this.todoService.inComplete(id);
+      this.todoService.inComplete(id).subscribe((result) => {
+        if (result) {
+          this.snackBar.open('Task incomplete');
+        }
+      });
     }, 500);
-
-    this.snackBar.open('Task incomplete', '', {
-      duration: 2000,
-    });
   }
 }

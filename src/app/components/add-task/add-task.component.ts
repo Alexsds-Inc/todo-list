@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {TaskFormComponent} from '../task-form/task-form.component';
 import {TodoService} from '@shared/services/todo.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-task',
@@ -11,7 +12,7 @@ import {TodoService} from '@shared/services/todo.service';
 export class AddTaskComponent implements OnInit {
   task: string;
 
-  constructor(private dialog: MatDialog, private todoService: TodoService) {}
+  constructor(private dialog: MatDialog, private todoService: TodoService, private snackBar: MatSnackBar) {}
 
   ngOnInit(): void {}
 
@@ -22,7 +23,9 @@ export class AddTaskComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((task) => {
       if (task) {
-        this.todoService.addTask(task);
+        this.todoService.addTask(task).subscribe(() => {
+          this.snackBar.open('Task added');
+        });
       }
     });
   }

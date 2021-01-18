@@ -12,7 +12,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule} from '@angular/material/snack-bar';
 
 import {AppComponent} from './app.component';
 import {NavbarComponent} from './components/navbar/navbar.component';
@@ -49,7 +49,16 @@ import {TaskFormComponent} from './components/task-form/task-form.component';
     MatInputModule,
     MatSnackBarModule,
   ],
-  providers: [TodoService],
+  providers: [
+    TodoService,
+    {
+      provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
+      useValue: {
+        duration: 2500,
+        panelClass: ['snackbar-success'],
+      },
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
