@@ -2,6 +2,7 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {ListPageComponent} from './list-page.component';
 import {TodoService} from '@shared/services/todo.service';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 describe('ListPageComponent', () => {
   let component: ListPageComponent;
@@ -10,6 +11,7 @@ describe('ListPageComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ListPageComponent],
+      imports: [MatSnackBarModule],
       providers: [TodoService],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
