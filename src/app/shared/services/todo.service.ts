@@ -82,7 +82,6 @@ export class TodoService {
   inComplete(id: number): void {
     const todosComplete = this.completed.getValue();
     const todo = todosComplete.find((item) => id === item.id);
-    console.log(todo);
     if (!todo) {
       return;
     }
