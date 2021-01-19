@@ -13,6 +13,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatMenuModule} from '@angular/material/menu';
 
 import {AppComponent} from './app.component';
 import {NavbarComponent} from './components/navbar/navbar.component';
@@ -48,6 +49,7 @@ import {TaskFormComponent} from './components/task-form/task-form.component';
     MatFormFieldModule,
     MatInputModule,
     MatSnackBarModule,
+    MatMenuModule,
   ],
   providers: [
     TodoService,

@@ -93,7 +93,7 @@ export class TodoService {
 
     const lastId = Math.max.apply(
       Math,
-      todos.map((o: Todo) => o.id)
+      todos.map((o: Todo) => o.id),
     );
 
     return lastId + 1;

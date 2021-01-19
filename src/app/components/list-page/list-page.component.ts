@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {TodoService} from '@shared/services/todo.service';
 import {Todo} from '@shared/models/todo.model';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {TaskFormComponent} from '../task-form/task-form.component';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-list-page',
@@ -11,8 +13,10 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 export class ListPageComponent implements OnInit {
   title = 'To Do List';
   todoList: Todo[] = [];
+  task: string;
 
-  constructor(private todoService: TodoService, private snackBar: MatSnackBar) {}
+  constructor(private dialog: MatDialog, private todoService: TodoService, private snackBar: MatSnackBar) {
+  }
 
   ngOnInit(): void {
     this.todoService.getList().subscribe((list) => {
@@ -28,5 +32,15 @@ export class ListPageComponent implements OnInit {
         }
       });
     }, 500);
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(TaskFormComponent, {
+      minWidth: '50vw',
+      data: {task: this.task}
+    });
+
+    dialogRef.afterClosed().subscribe(() => {
+    });
   }
 }
