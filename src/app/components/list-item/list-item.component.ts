@@ -7,7 +7,7 @@ import {Todo} from '@shared/models/todo.model';
   styleUrls: ['./list-item.component.scss'],
 })
 export class ListItemComponent implements OnInit {
-  @Input() todo: Todo;
+  @Input() todo!: Todo;
 
   constructor() {}
 

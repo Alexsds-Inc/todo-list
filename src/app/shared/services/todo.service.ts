@@ -105,7 +105,6 @@ export class TodoService {
       Math,
       todos.map((o: Todo) => o.id)
     );
-    console.log(lastId);
 
     return lastId + 1;
   }

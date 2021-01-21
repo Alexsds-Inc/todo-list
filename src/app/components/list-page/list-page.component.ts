@@ -33,7 +33,6 @@ export class ListPageComponent implements OnInit {
   }
 
   edit(todo: Todo): void {
-    console.log(todo);
     const dialogRef = this.dialog.open(TaskFormComponent, {
       minWidth: '50vw',
       data: {todo},
@@ -45,7 +44,9 @@ export class ListPageComponent implements OnInit {
           ...todo,
           task,
         };
-        this.todoService.update(updatedTodo);
+        this.todoService.update(updatedTodo).subscribe(() => {
+          this.snackBar.open('Task edited');
+        });
       }
     });
   }
