@@ -1,3 +1,3 @@
-<mat-checkbox [checked]="todo.complete">
+<mat-checkbox [checked]="todo.complete" (click)="onToggle()">
   <div [ngClass]="{completed: todo.complete}">{{ todo.task }}</div>
 </mat-checkbox>

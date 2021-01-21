@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>What's your new task?</h2>
+<h2 mat-dialog-title *ngIf="isAdd ? 'What\'s your new task?' : 'Edit Task'"></h2>
 <mat-dialog-content>
   <mat-form-field class="w-100">
     <mat-label>New Task</mat-label>

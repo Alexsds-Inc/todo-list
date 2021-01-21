@@ -10,6 +10,7 @@ import {DialogData} from '@shared/models/dialog-data.model';
 })
 export class TaskFormComponent implements OnInit {
   task: string;
+  isAdd: boolean;
 
   constructor(public dialogRef: MatDialogRef<AddTaskComponent>, @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
