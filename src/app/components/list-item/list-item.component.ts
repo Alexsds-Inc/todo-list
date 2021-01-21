@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Todo} from '@shared/models/todo.model';
 
 @Component({
@@ -9,16 +9,7 @@ import {Todo} from '@shared/models/todo.model';
 export class ListItemComponent implements OnInit {
   @Input() todo: Todo;
 
-  @Output() toggle = new EventEmitter<void>();
-
   constructor() {}
 
   ngOnInit(): void {}
-
-  onToggle(): void {
-    if (event) {
-      event.preventDefault();
-    }
-    this.toggle.emit();
-  }
 }

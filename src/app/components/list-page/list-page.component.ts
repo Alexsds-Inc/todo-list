@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TodoService} from '@shared/services/todo.service';
 import {Todo} from '@shared/models/todo.model';
 import {MatSnackBar} from '@angular/material/snack-bar';
@@ -13,24 +13,18 @@ import {MatDialog} from '@angular/material/dialog';
 export class ListPageComponent implements OnInit {
   title = 'To Do List';
   todoList: Todo[] = [];
-  @Input() todo: Todo;
-  task: string;
-  isAdd: boolean;
-
-  @Output() toggle = new EventEmitter<number>();
 
   constructor(private dialog: MatDialog, private todoService: TodoService, private snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
-    this.isAdd = true;
     this.todoService.getList().subscribe((list) => {
       this.todoList = list;
     });
   }
 
-  complete(id: number): void {
+  complete(todo: Todo): void {
     setTimeout(() => {
-      this.todoService.complete(id).subscribe((result) => {
+      this.todoService.complete(todo.id).subscribe((result) => {
         if (result) {
           this.snackBar.open('Task completed');
         }
@@ -38,18 +32,21 @@ export class ListPageComponent implements OnInit {
     }, 500);
   }
 
-  onToggle(id: number): void {
-    this.toggle.emit(id);
-  }
-
-  openDialog(): void {
+  edit(todo: Todo): void {
+    console.log(todo);
     const dialogRef = this.dialog.open(TaskFormComponent, {
       minWidth: '50vw',
-      data: {task: this.task},
+      data: {todo: todo},
     });
 
-    dialogRef.afterClosed().subscribe((result) => {
-      this.task = result;
+    dialogRef.afterClosed().subscribe((task) => {
+      if (task) {
+        const updatedTodo = {
+          ...todo,
+          task,
+        };
+        this.todoService.update(updatedTodo);
+      }
     });
   }
 }

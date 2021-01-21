@@ -9,10 +9,15 @@ import {DialogData} from '@shared/models/dialog-data.model';
   styleUrls: ['./task-form.component.scss'],
 })
 export class TaskFormComponent implements OnInit {
-  task: string;
-  isAdd: boolean;
+  task = '';
+  isAdd = true;
 
-  constructor(public dialogRef: MatDialogRef<AddTaskComponent>, @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+  constructor(public dialogRef: MatDialogRef<AddTaskComponent>, @Inject(MAT_DIALOG_DATA) public data: DialogData) {
+    if (data.todo) {
+      this.isAdd = false;
+      this.task = data.todo.task;
+    }
+  }
 
   ngOnInit(): void {}
 

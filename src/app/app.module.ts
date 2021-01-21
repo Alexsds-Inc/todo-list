@@ -9,7 +9,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatListModule} from '@angular/material/list';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatIconModule} from '@angular/material/icon';
-import {MAT_DIALOG_DATA, MatDialogModule} from '@angular/material/dialog';
+import {MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule} from '@angular/material/snack-bar';
@@ -59,10 +59,6 @@ import {TaskFormComponent} from './components/task-form/task-form.component';
         duration: 2500,
         panelClass: ['snackbar-success'],
       },
-    },
-    {
-      provide: MAT_DIALOG_DATA,
-      useValue: {},
     },
   ],
   bootstrap: [AppComponent],

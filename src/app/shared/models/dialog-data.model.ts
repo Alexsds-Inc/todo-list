@@ -1,3 +1,5 @@
+import {Todo} from '@shared/models/todo.model';
+
 export interface DialogData {
-  task: string;
+  todo: Todo;
 }
