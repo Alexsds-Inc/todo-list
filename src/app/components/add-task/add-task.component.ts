@@ -22,7 +22,7 @@ export class AddTaskComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(TaskFormComponent, {
       minWidth: '50vw',
-      data: {task: 'jsahdfjkhads'},
+      data: {},
     });
 
     dialogRef.afterClosed().subscribe((task) => {

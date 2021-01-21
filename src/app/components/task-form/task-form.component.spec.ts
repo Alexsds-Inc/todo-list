@@ -1,10 +1,10 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {TaskFormComponent} from './task-form.component';
-import {MatDialogModule, MatDialogRef} from '@angular/material/dialog';
+import {MAT_DIALOG_DATA, MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 
-describe('AddTaskComponent', () => {
+describe('TaskFormComponent', () => {
   let component: TaskFormComponent;
   let fixture: ComponentFixture<TaskFormComponent>;
 
@@ -15,6 +15,10 @@ describe('AddTaskComponent', () => {
       providers: [
         {
           provide: MatDialogRef,
+          useValue: {},
+        },
+        {
+          provide: MAT_DIALOG_DATA,
           useValue: {},
         },
       ],

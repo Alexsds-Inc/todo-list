@@ -36,7 +36,7 @@ export class ListPageComponent implements OnInit {
     console.log(todo);
     const dialogRef = this.dialog.open(TaskFormComponent, {
       minWidth: '50vw',
-      data: {todo: todo},
+      data: {todo},
     });
 
     dialogRef.afterClosed().subscribe((task) => {

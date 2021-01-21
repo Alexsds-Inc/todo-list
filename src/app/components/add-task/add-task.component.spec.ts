@@ -1,5 +1,5 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {MatDialogModule} from '@angular/material/dialog';
+import {MAT_DIALOG_DATA, MatDialogModule} from '@angular/material/dialog';
 import {AddTaskComponent} from './add-task.component';
 import {TodoService} from '@shared/services/todo.service';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
