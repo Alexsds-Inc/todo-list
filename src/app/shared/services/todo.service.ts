@@ -86,6 +86,16 @@ export class TodoService {
     return of(true);
   }
 
+  update(todo: Todo): Observable<Todo> {
+    const todosIncomplete = this.incomplete.getValue();
+    const foundIndex = todosIncomplete.findIndex((x) => x.id === todo.id);
+    todosIncomplete[foundIndex] = todo;
+
+    this.incomplete.next(todosIncomplete);
+
+    return of(todo);
+  }
+
   protected getNextId(): number {
     const todosIncomplete = this.incomplete.getValue();
     const todosCompleted = this.completed.getValue();

@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {MatDialogRef} from '@angular/material/dialog';
+import {Component, Inject, OnInit} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {AddTaskComponent} from '../add-task/add-task.component';
+import {DialogData} from '@shared/models/dialog-data.model';
 
 @Component({
   selector: 'app-task-form',
@@ -8,9 +9,15 @@ import {AddTaskComponent} from '../add-task/add-task.component';
   styleUrls: ['./task-form.component.scss'],
 })
 export class TaskFormComponent implements OnInit {
-  task: string;
+  task = '';
+  isAdd = true;
 
-  constructor(public dialogRef: MatDialogRef<AddTaskComponent>) {}
+  constructor(public dialogRef: MatDialogRef<AddTaskComponent>, @Inject(MAT_DIALOG_DATA) public data: DialogData) {
+    if (data.todo) {
+      this.isAdd = false;
+      this.task = data.todo.task;
+    }
+  }
 
   ngOnInit(): void {}
 

@@ -7,7 +7,16 @@
   <mat-card-content>
     <mat-list *ngIf="todoList.length > 0; else emptyState" role="list">
       <mat-list-item *ngFor="let todo of todoList" role="listitem">
-        <app-list-item [todo]="todo" (click)="complete(todo.id)"> </app-list-item>
+        <app-list-item [todo]="todo" (click)="complete(todo)"></app-list-item>
+        <button mat-icon-button [matMenuTriggerFor]="menu" class="btn-menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="edit(todo)">
+            <mat-icon>edit</mat-icon>
+            <span>Edit</span>
+          </button>
+        </mat-menu>
       </mat-list-item>
     </mat-list>
     <ng-template #emptyState>
