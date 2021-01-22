@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {ListPageComponent} from './components/list-page/list-page.component';
 import {CompletedPageComponent} from './components/completed-page/completed-page.component';
+import {LoginComponent} from './components/login/login.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,10 @@ const routes: Routes = [
   {
     path: 'completed',
     component: CompletedPageComponent,
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
   },
 ];
 
