@@ -29,11 +29,15 @@ export class LoginComponent implements OnInit {
       password: f.value.password,
     };
 
+    this.error = false;
+
     this.authService.login(user).subscribe((result) => {
       if (result) {
         f.reset();
         this.router.navigate(['/list']);
         this.snackBar.open('User authorized');
+      } else {
+        this.error = true;
       }
     });
   }
