@@ -23,6 +23,8 @@ import {ListItemComponent} from './components/list-item/list-item.component';
 import {TodoService} from '@shared/services/todo.service';
 import {AddTaskComponent} from './components/add-task/add-task.component';
 import {TaskFormComponent} from './components/task-form/task-form.component';
+import {LoginComponent} from './components/login/login.component';
+import {AuthService} from '@shared/services/auth.service';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import {TaskFormComponent} from './components/task-form/task-form.component';
     ListItemComponent,
     AddTaskComponent,
     TaskFormComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,6 +56,7 @@ import {TaskFormComponent} from './components/task-form/task-form.component';
   ],
   providers: [
     TodoService,
+    AuthService,
     {
       provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
       useValue: {
