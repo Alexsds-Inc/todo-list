@@ -23,6 +23,7 @@ import {ListItemComponent} from './components/list-item/list-item.component';
 import {TodoService} from '@shared/services/todo.service';
 import {AddTaskComponent} from './components/add-task/add-task.component';
 import {TaskFormComponent} from './components/task-form/task-form.component';
+import {RegisterComponent} from './components/register/register.component';
 import {LoginComponent} from './components/login/login.component';
 import {AuthService} from '@shared/services/auth.service';
 
@@ -35,6 +36,7 @@ import {AuthService} from '@shared/services/auth.service';
     ListItemComponent,
     AddTaskComponent,
     TaskFormComponent,
+    RegisterComponent,
     LoginComponent,
   ],
   imports: [

@@ -1,19 +1,20 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
 import {NgForm} from '@angular/forms';
+import {Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material/snack-bar';
 
-import {AuthService} from '@shared/services/auth.service';
 import {User} from '@shared/models/user.model';
+import {AuthService} from '@shared/services/auth.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.scss'],
 })
-export class LoginComponent implements OnInit {
+export class RegisterComponent implements OnInit {
   error = false;
   hide = true;
+  submitted: boolean;
 
   constructor(public authService: AuthService, private router: Router, private snackBar: MatSnackBar) {}
 
@@ -26,19 +27,21 @@ export class LoginComponent implements OnInit {
 
     const user: User = {
       name: f.value.name,
+      email: f.value.email,
       password: f.value.password,
     };
 
     this.error = false;
 
-    this.authService.login(user).subscribe((result) => {
+    this.authService.register(user).subscribe((result) => {
       if (result) {
         f.reset();
-        this.router.navigate(['/list']);
-        this.snackBar.open('User authorized');
+        this.router.navigate(['/login']);
+        this.snackBar.open('User registered');
       }
 
       this.error = true;
+      this.snackBar.open('This email is busy');
     });
   }
 }
