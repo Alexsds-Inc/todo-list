@@ -1,10 +1,11 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject, Observable, of} from 'rxjs';
+import {BehaviorSubject, Observable, of, Subject} from 'rxjs';
 import {User} from '@shared/models/user.model';
 
 @Injectable()
 export class AuthService {
   private users = new BehaviorSubject<User[]>([]);
+  private authorized = new Subject<boolean>();
 
   constructor() {
     this.users.next([
@@ -19,6 +20,11 @@ export class AuthService {
         password: '654321',
       },
     ]);
+    this.authorized.next(false);
+  }
+
+  isAuthorized(): Observable<boolean> {
+    return this.authorized.asObservable();
   }
 
   register(user: User): Observable<boolean> {
@@ -40,7 +46,7 @@ export class AuthService {
     if (!item) {
       return of(false);
     }
-
+    this.authorized.next(true);
     return of(true);
   }
 }
