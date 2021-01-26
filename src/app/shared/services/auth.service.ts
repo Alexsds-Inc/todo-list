@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject, Observable, of, Subject} from 'rxjs';
+import {BehaviorSubject, Observable, of} from 'rxjs';
 import {User} from '@shared/models/user.model';
 
 @Injectable()
 export class AuthService {
   private users = new BehaviorSubject<User[]>([]);
-  private authorized = new Subject<boolean>();
+  private authorized = new BehaviorSubject<boolean>(false);
 
   constructor() {
     this.users.next([
@@ -20,10 +20,14 @@ export class AuthService {
         password: '654321',
       },
     ]);
-    this.authorized.next(false);
   }
 
   isAuthorized(): Observable<boolean> {
+    return this.authorized.asObservable();
+  }
+
+  logout(): Observable<boolean> {
+    this.authorized.next(false);
     return this.authorized.asObservable();
   }
 
