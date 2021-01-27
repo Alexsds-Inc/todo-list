@@ -5,6 +5,7 @@ import {User} from '@shared/models/user.model';
 @Injectable()
 export class AuthService {
   private users = new BehaviorSubject<User[]>([]);
+  private authorized = new BehaviorSubject<boolean>(false);
 
   constructor() {
     this.users.next([
@@ -19,6 +20,15 @@ export class AuthService {
         password: '654321',
       },
     ]);
+  }
+
+  isAuthorized(): Observable<boolean> {
+    return this.authorized.asObservable();
+  }
+
+  logout(): Observable<boolean> {
+    this.authorized.next(false);
+    return this.authorized.asObservable();
   }
 
   register(user: User): Observable<boolean> {
@@ -40,7 +50,7 @@ export class AuthService {
     if (!item) {
       return of(false);
     }
-
+    this.authorized.next(true);
     return of(true);
   }
 }
