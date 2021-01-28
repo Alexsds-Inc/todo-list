@@ -13,7 +13,7 @@ export class AuthService {
       {
         name: 'Alex',
         email: 'auth@mail.ru',
-        password: '123456',
+        password: '12',
       },
       {
         name: 'Korol',
