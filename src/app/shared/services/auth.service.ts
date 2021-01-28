@@ -6,6 +6,7 @@ import {User} from '@shared/models/user.model';
 export class AuthService {
   private users = new BehaviorSubject<User[]>([]);
   private authorized = new BehaviorSubject<boolean>(false);
+  private authorizedUser = new BehaviorSubject<User | null>(null);
 
   constructor() {
     this.users.next([
@@ -20,6 +21,10 @@ export class AuthService {
         password: '654321',
       },
     ]);
+  }
+
+  getAuthorizedUser(): Observable<User | null> {
+    return this.authorizedUser.asObservable();
   }
 
   isAuthorized(): Observable<boolean> {
@@ -46,10 +51,12 @@ export class AuthService {
 
   login(user: User): Observable<boolean> {
     const users = this.users.getValue();
-    const item = !!users.find((i) => (i.email === user.name || i.name === user.name) && i.password === user.password);
-    if (!item) {
+    const authUser = users.find((i) => (i.email === user.name || i.name === user.name) && i.password === user.password);
+    if (authUser === undefined) {
       return of(false);
     }
+
+    this.authorizedUser.next(authUser);
     this.authorized.next(true);
     return of(true);
   }
