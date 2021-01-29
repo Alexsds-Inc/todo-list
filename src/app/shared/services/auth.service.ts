@@ -60,4 +60,16 @@ export class AuthService {
     this.authorized.next(true);
     return of(true);
   }
+
+  delete(): void {
+    const users = this.users.getValue();
+    const authU = this.authorizedUser.getValue();
+    if (users && authU) {
+      const newUsers = users.filter(
+        (item) => item.name !== authU.name && item.email !== authU.email && item.password !== authU.password
+      );
+      this.users.next(newUsers);
+      this.authorized.next(false);
+    }
+  }
 }

@@ -27,7 +27,7 @@ import {RegisterComponent} from './components/register/register.component';
 import {LoginComponent} from './components/login/login.component';
 import {AuthService} from '@shared/services/auth.service';
 import {ProfileComponent} from './components/profile/profile.component';
-import { ConfirmDeleteProfileComponent } from './components/confirm-delete-profile/confirm-delete-profile.component';
+import {ConfirmDeleteProfileComponent} from './components/confirm-delete-profile/confirm-delete-profile.component';
 
 @NgModule({
   declarations: [
