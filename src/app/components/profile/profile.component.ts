@@ -27,17 +27,20 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  openDialog(): void {
+  onClickDelete(): void {
     const dialogRef = this.dialog.open(ConfirmDeleteProfileComponent, {
       width: '50vw',
       data: {name: this.name, email: this.email},
     });
 
-    dialogRef.afterClosed().subscribe((res) => {
-      if (res) {
-        this.authService.delete();
-        this.router.navigate(['/registration']);
-        this.snackBar.open('Profile deleted');
+    dialogRef.afterClosed().subscribe((response) => {
+      if (response) {
+        this.authService.delete().subscribe((result) => {
+          if (result){
+            this.router.navigate(['/registration']);
+            this.snackBar.open('Profile deleted');
+          }
+        });
       }
     });
   }

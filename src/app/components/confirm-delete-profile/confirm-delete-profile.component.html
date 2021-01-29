@@ -7,8 +7,8 @@
     <p>All information associated with this profile will be permanently deleted.</p>
     <p [ngStyle]="{color: 'red'}">This operation cannot be undone.</p>
   </mat-card-content>
-  <mat-card-actions class="btn-confirm">
-    <button mat-button (click)="onNoClick()">Cancel</button>
+  <mat-card-actions [ngStyle]="{textAlign: 'end'}">
+    <button mat-button mat-dialog-close>Cancel</button>
     <button mat-raised-button color="accent" [mat-dialog-close]="true">Delete</button>
   </mat-card-actions>
 </mat-card>

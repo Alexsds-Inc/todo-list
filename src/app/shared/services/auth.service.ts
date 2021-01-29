@@ -31,11 +31,6 @@ export class AuthService {
     return this.authorized.asObservable();
   }
 
-  logout(): Observable<boolean> {
-    this.authorized.next(false);
-    return this.authorized.asObservable();
-  }
-
   register(user: User): Observable<boolean> {
     const users = this.users.getValue();
     const item = !!users.find((i) => i.email === user.email);
@@ -61,15 +56,22 @@ export class AuthService {
     return of(true);
   }
 
-  delete(): void {
+  logout(): Observable<boolean> {
+    this.authorized.next(false);
+    return this.authorized.asObservable();
+  }
+
+  delete(): Observable<boolean> {
     const users = this.users.getValue();
-    const authU = this.authorizedUser.getValue();
-    if (users && authU) {
+    const authUser = this.authorizedUser.getValue();
+    if (users && authUser) {
       const newUsers = users.filter(
-        (item) => item.name !== authU.name && item.email !== authU.email && item.password !== authU.password
+        (item) => item.name !== authUser.name && item.email !== authUser.email && item.password !== authUser.password,
       );
       this.users.next(newUsers);
       this.authorized.next(false);
     }
+
+    return of(true);
   }
 }

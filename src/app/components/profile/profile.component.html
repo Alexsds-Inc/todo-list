@@ -1,31 +1,23 @@
 <mat-card>
   <mat-card-header>
-    <mat-card-title>Name</mat-card-title>
+    <mat-card-title>Profile</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <p>
-      {{ name }}
-    </p>
-  </mat-card-content>
-
-  <mat-card-header>
-    <mat-card-title>Email</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <p>
-      {{ email }}
-    </p>
+    <mat-list role="list">
+      <mat-list-item>Name:&nbsp;{{name}}</mat-list-item>
+      <mat-list-item>Email:&nbsp;{{email}}</mat-list-item>
+    </mat-list>
   </mat-card-content>
 </mat-card>
 
 <mat-card class="mt-3">
   <mat-card-header>
-    <mat-card-title>Shiba Inu</mat-card-title>
+    <mat-card-title>Account deleting</mat-card-title>
+    <mat-card-subtitle>The deletion of your account is irreversible, all channels and advertising cards will also be
+      deleted
+    </mat-card-subtitle>
   </mat-card-header>
-  <mat-card-content>
-    <p>The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.</p>
-  </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button color="accent" (click)="openDialog()">Delete</button>
+    <button mat-raised-button color="accent" (click)="onClickDelete()">Delete</button>
   </mat-card-actions>
 </mat-card>
