@@ -66,7 +66,7 @@ export class AuthService {
     const authUser = this.authorizedUser.getValue();
     if (users && authUser) {
       const newUsers = users.filter(
-        (item) => item.name !== authUser.name && item.email !== authUser.email && item.password !== authUser.password,
+        (item) => item.name !== authUser.name && item.email !== authUser.email && item.password !== authUser.password
       );
       this.users.next(newUsers);
       this.authorized.next(false);

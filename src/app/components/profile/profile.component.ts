@@ -14,7 +14,12 @@ export class ProfileComponent implements OnInit {
   name: string | undefined;
   email: string | undefined;
 
-  constructor(private authService: AuthService, public dialog: MatDialog, private router: Router, private snackBar: MatSnackBar) {}
+  constructor(
+    private authService: AuthService,
+    public dialog: MatDialog,
+    private router: Router,
+    private snackBar: MatSnackBar
+  ) {}
 
   ngOnInit(): void {
     this.authService.getAuthorizedUser().subscribe((user) => {
@@ -36,7 +41,7 @@ export class ProfileComponent implements OnInit {
     dialogRef.afterClosed().subscribe((response) => {
       if (response) {
         this.authService.delete().subscribe((result) => {
-          if (result){
+          if (result) {
             this.router.navigate(['/registration']);
             this.snackBar.open('Profile deleted');
           }
