@@ -3,6 +3,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 
 import {ProfileComponent} from './profile.component';
 import {AuthService} from '@shared/services/auth.service';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 describe('ProfileComponent', () => {
   let component: ProfileComponent;
@@ -11,7 +12,7 @@ describe('ProfileComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ProfileComponent],
-      imports: [MatDialogModule],
+      imports: [MatDialogModule, MatSnackBarModule],
       providers: [AuthService]
     }).compileComponents();
   });
