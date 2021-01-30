@@ -61,8 +61,9 @@ export class AuthService {
     return this.authorized.asObservable();
   }
 
-  delete(user: User): Observable<boolean> {
+  delete(): Observable<boolean> {
     const users = this.users.getValue();
+    const user = this.authorizedUser.getValue();
     if (users && user) {
       const newUsers = users.filter(
         (item) => item.name !== user.name && item.email !== user.email && item.password !== user.password

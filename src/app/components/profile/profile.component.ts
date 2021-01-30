@@ -34,14 +34,13 @@ export class ProfileComponent implements OnInit {
   onClickDelete(): void {
     const dialogRef = this.dialog.open(ConfirmDeleteProfileComponent, {
       width: '50vw',
-      data: {name: this.user.name, email: this.user.email},
     });
 
     dialogRef.afterClosed().subscribe((response) => {
       if (response) {
-        this.authService.delete(this.user).subscribe((result) => {
+        this.authService.delete().subscribe((result) => {
           if (result) {
-            this.router.navigate(['/registration']);
+            this.router.navigate(['/']);
             this.snackBar.open('Profile deleted');
           }
         });
