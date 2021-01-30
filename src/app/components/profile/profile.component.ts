@@ -4,6 +4,7 @@ import {MatDialog} from '@angular/material/dialog';
 import {ConfirmDeleteProfileComponent} from '../confirm-delete-profile/confirm-delete-profile.component';
 import {Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {User} from '@shared/models/user.model';
 
 @Component({
   selector: 'app-profile',
@@ -11,8 +12,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
   styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent implements OnInit {
-  name: string | undefined;
-  email: string | undefined;
+  user: User;
 
   constructor(
     private authService: AuthService,
@@ -27,20 +27,19 @@ export class ProfileComponent implements OnInit {
         return;
       }
 
-      this.name = user.name;
-      this.email = user.email;
+      this.user = user;
     });
   }
 
   onClickDelete(): void {
     const dialogRef = this.dialog.open(ConfirmDeleteProfileComponent, {
       width: '50vw',
-      data: {name: this.name, email: this.email},
+      data: {name: this.user.name, email: this.user.email},
     });
 
     dialogRef.afterClosed().subscribe((response) => {
       if (response) {
-        this.authService.delete().subscribe((result) => {
+        this.authService.delete(this.user).subscribe((result) => {
           if (result) {
             this.router.navigate(['/registration']);
             this.snackBar.open('Profile deleted');
