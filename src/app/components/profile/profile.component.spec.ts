@@ -1,11 +1,11 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {MatDialogModule} from '@angular/material/dialog';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 import {ProfileComponent} from './profile.component';
 import {AuthService} from '@shared/services/auth.service';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {RouterTestingModule} from '@angular/router/testing';
-import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 describe('ProfileComponent', () => {
   let component: ProfileComponent;
