@@ -36,10 +36,10 @@ export class ProfileComponent implements OnInit {
       width: '50vw',
     });
 
-    dialogRef.afterClosed().subscribe((response) => {
-      if (response) {
-        this.authService.delete().subscribe((result) => {
-          if (result) {
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.authService.delete(this.user.id).subscribe((response) => {
+          if (response) {
             this.router.navigate(['/']);
             this.snackBar.open('Profile deleted');
           }

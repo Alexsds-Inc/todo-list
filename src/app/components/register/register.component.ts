@@ -3,7 +3,6 @@ import {NgForm} from '@angular/forms';
 import {Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material/snack-bar';
 
-import {User} from '@shared/models/user.model';
 import {AuthService} from '@shared/services/auth.service';
 
 @Component({
@@ -20,22 +19,16 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onSubmit(f: NgForm): void {
-    if (f.invalid) {
+  onSubmit(form: NgForm): void {
+    if (form.invalid) {
       return;
     }
 
-    const user: User = {
-      name: f.value.name,
-      email: f.value.email,
-      password: f.value.password,
-    };
-
     this.error = false;
 
-    this.authService.register(user).subscribe((result) => {
+    this.authService.register(form.value.name, form.value.email, form.value.password).subscribe((result) => {
       if (result) {
-        f.reset();
+        form.reset();
         this.router.navigate(['/login']);
         this.snackBar.open('User registered');
       }
