@@ -1,0 +1,13 @@
+.empty-state {
+  text-align: center;
+
+  &__image {
+    max-width: 350px;
+  }
+}
+
+.btn-menu {
+  position: absolute;
+  bottom: .3rem;
+  right: 0;
+}

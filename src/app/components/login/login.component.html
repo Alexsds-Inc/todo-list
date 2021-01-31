@@ -1,0 +1,53 @@
+<div class="mat-card-wrap">
+  <mat-card class="mat-elevation-z8">
+    <mat-card-title>Вход</mat-card-title>
+    <mat-card-content>
+      <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <p *ngIf="error" style="margin-top: 1em">
+          <mat-error>Имя пользователя или пароль не совпадают.</mat-error>
+        </p>
+
+        <p>
+          <mat-form-field>
+            <mat-label>Email или Name</mat-label>
+            <input matInput ngModel required type="text" name="name" #name="ngModel" />
+            <mat-error *ngIf="name.hasError('required')"> Поле обязательно для заполнения. </mat-error>
+          </mat-form-field>
+        </p>
+
+        <p>
+          <mat-form-field>
+            <mat-label>Пароль</mat-label>
+            <input
+              matInput
+              ngModel
+              required
+              #password="ngModel"
+              autocomplete="current-password"
+              id="password"
+              [type]="hide ? 'password' : 'text'"
+              name="password"
+            />
+            <button
+              type="button"
+              mat-icon-button
+              matSuffix
+              (click)="hide = !hide"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide"
+            >
+              <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+            <mat-error *ngIf="password.invalid && password.hasError('required')" class="invalid-feedback" role="alert">
+              Пароль обязательно для заполнения.
+            </mat-error>
+          </mat-form-field>
+        </p>
+
+        <div class="button">
+          <button type="submit" mat-flat-button color="primary" style="width: 100%; height: 3em">Войти</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
