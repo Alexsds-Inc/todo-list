@@ -10,6 +10,25 @@
 
 ![user story mapping](documentation/user-story-mapping.png)
 
+### Demo
+[https://angular-todo-list-5447f.web.app/](https://angular-todo-list-5447f.web.app/)
+
+### Screenshots
+<a href="documentation/screenshots/login.png"><img src="documentation/screenshots/login.png" style="margin-right: 1em;" width="100"></a>
+<a href="documentation/screenshots/registration.png"><img src="documentation/screenshots/registration.png" style="margin-right: 1em;" width="100"></a>
+<a href="documentation/screenshots/add-task.png"><img src="documentation/screenshots/add-task.png" style="margin-right: 1em;" width="100"></a>
+<a href="documentation/screenshots/profile-menu.png"><img src="documentation/screenshots/profile-menu.png" style="margin-right: 1em;" width="100"></a>
+<a href="documentation/screenshots/profile-page.png"><img src="documentation/screenshots/profile-page.png" style="margin-right: 1em;" width="100"></a>
+<a href="documentation/screenshots/confirm-deleting.png"><img src="documentation/screenshots/confirm-deleting.png" style="margin-right: 1em;" width="100"></a>
+<a href="documentation/screenshots/completed-page.png"><img src="documentation/screenshots/completed-page.png" style="margin-right: 1em;" width="100"></a>
+<a href="documentation/screenshots/list-page.png"><img src="documentation/screenshots/list-page.png" style="margin-right: 1em;" width="100"></a>
+<a href="documentation/screenshots/edit-task-menu.png"><img src="documentation/screenshots/edit-task-menu.png" style="margin-right: 1em;" width="100"></a>
+<a href="documentation/screenshots/edit-task.png"><img src="documentation/screenshots/edit-task.png" style="margin-right: 1em;" width="100"></a>
+<a href="documentation/screenshots/no-completed-task.png"><img src="documentation/screenshots/no-completed-task.png" style="margin-right: 1em;" width="100"></a>
+<a href="documentation/screenshots/no-new-task.png"><img src="documentation/screenshots/no-new-task.png" width="100"></a>
+
+## Info
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.5.
 
 ## Development server

@@ -1,17 +1,17 @@
 <div class="mat-card-wrap">
   <mat-card class="mat-elevation-z8">
-    <mat-card-title>Регистрация</mat-card-title>
+    <mat-card-title>Registration</mat-card-title>
     <mat-card-content>
       <form (ngSubmit)="onSubmit(f)" #f="ngForm">
         <p *ngIf="error" style="margin-top: 1em">
-          <mat-error>Имя пользователя или пароль не совпадают.</mat-error>
+          <mat-error>The username or password does not match.</mat-error>
         </p>
 
         <p>
           <mat-form-field>
             <mat-label>Name</mat-label>
             <input matInput ngModel required name="name" type="text" #name="ngModel" />
-            <mat-error *ngIf="name.hasError('required')"> Name обязательно для заполнения. </mat-error>
+            <mat-error *ngIf="name.hasError('required')"> Name is required. </mat-error>
           </mat-form-field>
         </p>
 
@@ -29,16 +29,14 @@
               name="email"
               #email="ngModel"
             />
-            <mat-error *ngIf="email.invalid && email.hasError('required')">
-              Email обязательно для заполнения.
-            </mat-error>
-            <mat-error *ngIf="email.invalid && email.hasError('email')"> Введите валидный email. </mat-error>
+            <mat-error *ngIf="email.invalid && email.hasError('required')"> Email is required. </mat-error>
+            <mat-error *ngIf="email.invalid && email.hasError('email')"> Enter a valid email. </mat-error>
           </mat-form-field>
         </p>
 
         <p>
           <mat-form-field>
-            <mat-label>Пароль</mat-label>
+            <mat-label>Password</mat-label>
             <input
               matInput
               ngModel
@@ -60,14 +58,14 @@
               <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
             </button>
             <mat-error *ngIf="password.invalid && password.hasError('required')" class="invalid-feedback" role="alert">
-              Пароль обязательно для заполнения.
+              Password is required.
             </mat-error>
           </mat-form-field>
         </p>
 
         <p>
           <mat-form-field>
-            <mat-label>Подтвердите пароль</mat-label>
+            <mat-label>Confirm the password</mat-label>
             <input
               matInput
               ngModel
@@ -94,10 +92,10 @@
               class="invalid-feedback"
               role="alert"
             >
-              Пароль обязательно для заполнения.
+              The password is required.
             </mat-error>
             <mat-error *ngIf="confirm_password.hasError('pattern')" class="invalid-feedback" role="alert">
-              Пароли не совпадают.
+              Passwords do not match.
             </mat-error>
           </mat-form-field>
         </p>
@@ -110,7 +108,7 @@
             style="width: 100%; height: 3em"
             [disabled]="f.invalid || submitted"
           >
-            Зарегистрироваться
+            Sign up
           </button>
         </div>
       </form>
