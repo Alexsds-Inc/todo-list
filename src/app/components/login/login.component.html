@@ -11,8 +11,7 @@
           <mat-form-field>
             <mat-label>Email or Name</mat-label>
             <input matInput ngModel required type="text" name="name" #name="ngModel" />
-            <mat-error *ngIf="name.hasError('required')"> Required field.
-            </mat-error>
+            <mat-error *ngIf="name.hasError('required')"> Required field. </mat-error>
           </mat-form-field>
         </p>
 

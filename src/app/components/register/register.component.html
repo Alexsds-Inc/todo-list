@@ -11,8 +11,7 @@
           <mat-form-field>
             <mat-label>Name</mat-label>
             <input matInput ngModel required name="name" type="text" #name="ngModel" />
-            <mat-error *ngIf="name.hasError('required')"> Name is required.
-            </mat-error>
+            <mat-error *ngIf="name.hasError('required')"> Name is required. </mat-error>
           </mat-form-field>
         </p>
 
@@ -30,11 +29,8 @@
               name="email"
               #email="ngModel"
             />
-            <mat-error *ngIf="email.invalid && email.hasError('required')">
-              Email is required.
-            </mat-error>
-            <mat-error *ngIf="email.invalid && email.hasError('email')"> Enter a valid email.
-            </mat-error>
+            <mat-error *ngIf="email.invalid && email.hasError('required')"> Email is required. </mat-error>
+            <mat-error *ngIf="email.invalid && email.hasError('email')"> Enter a valid email. </mat-error>
           </mat-form-field>
         </p>
 
